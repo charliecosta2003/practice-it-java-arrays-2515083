@@ -1,7 +1,24 @@
 public class App {
   
   public static Integer findSecondSmallestItem(Integer[] arr) {
-    return 0;
+    int smallest = Integer.MAX_VALUE;
+    int secondSmallest = Integer.MAX_VALUE;
+
+    for (Integer item : arr) {
+      if (item < smallest) {
+        secondSmallest = smallest;
+        smallest = item;
+      }
+      else if (item > smallest && item < secondSmallest) {
+        secondSmallest = item;
+      }
+    }
+
+    if (secondSmallest == Integer.MAX_VALUE) {
+      return null;
+    }
+
+    return secondSmallest;
   }
     
   public static void main(String args[]) {
